@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Text, View, StyleSheet, TouchableOpacity, Modal, Alert, Button } from 'react-native';
-import { House, Camera, MapPin, BotMessageSquare, CircleUser } from 'lucide-react-native';
+import { House, Gamepad2, MapPin, BotMessageSquare, CircleUser } from 'lucide-react-native';
 import { router } from 'expo-router';
 import { CameraView, useCameraPermissions } from 'expo-camera';
 
@@ -20,29 +20,46 @@ export default function Footer({ route }: any) {
 
   return (
     <View style={styles.footerContainer}>
-      <TouchableOpacity style={styles.iconContainer}>
-        <House color={route === 'home' ? 'blue' : 'red'} size={23} onPress={() => router.push('/')} />
-        <Text style={{ fontSize: 8 }}>HOME</Text>
+      <TouchableOpacity
+        style={styles.iconContainer}
+        onPress={() => router.push('/home')}
+      >
+        <House color={route === 'home' ? '#158ADD' : '#000000'} size={24} />
+        <Text style={[styles.iconText, route === 'home' && styles.activeText]}>HOME</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.iconContainer} onPress={() => router.push('/pages/map')}>
-        <MapPin color={route === 'map' ? 'blue' : 'red'} size={23} />
-        <Text style={{ fontSize: 8 }}>MAP</Text>
+      <TouchableOpacity
+        style={styles.iconContainer}
+        // onPress={() => router.push('/pages/map')}
+      >
+        <Gamepad2 color={route === 'game' ? '#158ADD' : '#000000'} size={30} />
+        <Text style={[styles.iconText, route === 'game' && styles.activeText]}>Game</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.iconContainer} onPress={handleOpenCamera}>
-        <Camera color={route === 'camera' ? 'blue' : 'red'} size={23} />
-        <Text style={{ fontSize: 8 }}>Camera</Text>
+      <TouchableOpacity
+        style={styles.iconContainerCamera}
+        // onPress={handleOpenCamera}
+        onPress={() => router.push('/')}
+      >
+        {/* <Camera style={styles.btn_camera} color='white' size={23} /> */}
+        <MapPin style={styles.btn_camera} color='white' size={30} />
+        {/* <Text style={[styles.iconText,  styles.activeText]}>CAMERA</Text> */}
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.iconContainer}>
-        <BotMessageSquare color={route === 'chatbot' ? 'blue' : 'red'} size={23} />
-        <Text style={{ fontSize: 8 }}>ChatBot</Text>
+      <TouchableOpacity
+        style={styles.iconContainer}
+        // onPress={() => router.push('/pages/chatbot')}
+      >
+        <BotMessageSquare color={route === 'chatbot' ? '#158ADD' : '#000000'} size={30} />
+        <Text style={[styles.iconText, route === 'chatbot' && styles.activeText]}>ChatBot</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.iconContainer}>
-        <CircleUser color={route === 'user' ? 'blue' : 'red'} size={23} />
-        <Text style={{ fontSize: 8 }}>User</Text>
+      <TouchableOpacity
+        style={styles.iconContainer}
+        // onPress={() => router.push('/pages/user')}
+      >
+        <CircleUser color={route === 'user' ? '#158ADD' : '#000000'} size={27} />
+        <Text style={[styles.iconText, route === 'user' && styles.activeText]}>User</Text>
       </TouchableOpacity>
 
       <Modal visible={modalIsVisible} animationType="slide">
@@ -65,10 +82,29 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     alignItems: 'center',
     paddingVertical: 10,
-    backgroundColor: '#fff', // Optional: for better visibility of the footer
+    backgroundColor: '#fff',
   },
   iconContainer: {
     alignItems: 'center',
+    flex: 1,
+  },
+  iconContainerCamera: {
+    width: 50,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: 50,
+    borderRadius: 50,
+    backgroundColor: '#158ADD',
+    marginLeft:20,
+    marginRight:20
+  },
+  iconText: {
+    fontSize: 8,
+    color: '#A0A0A0',
+  },
+  activeText: {
+    color: '#158ADD', // Active icon text color
   },
   modalFooter: {
     position: 'absolute',
@@ -78,5 +114,11 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  btn_camera: {
+    // backgroundColor: "#158ADD",
+    // borderRadius: 25,
+    // padding: 10,
+    // elevation: 5, // Adding a shadow for better UI experience
   },
 });

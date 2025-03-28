@@ -1,59 +1,19 @@
-import React from 'react';
-import { Text, View, ScrollView, StyleSheet, RefreshControl } from 'react-native';
-import { Settings, Map } from 'lucide-react-native';
+import { Text, View, Button } from 'react-native';
+import RenderMap from '@/components/map';
+import BottomSheet, { BottomSheetView } from '@gorhom/bottom-sheet';
 import Footer from '@/components/footer';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { useState, useRef, useMemo, useCallback } from 'react';
 
-export default function App() {
-  const [refreshing, setRefreshing] = React.useState(false);
-  const [valor, setValor] = React.useState(0);
-
-  const onRefresh = React.useCallback(() => {
-    setRefreshing(true);
-    setTimeout(() => {
-      setValor((prevValor) => prevValor + 1); // Safer state update
-      setRefreshing(false);
-    }, 2000);
-  }, []);
+export default function Map() {
 
   return (
-    <ScrollView
-      style={styles.container}
-      refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}
-    >
-      <View style={styles.content}>
-        <View style={styles.iconContainer}>
-          <Map color="red" size={23} />
-        </View>
-        <View style={styles.textContainer}>
-          <Text>Pesquisar</Text>
-        </View>
-        <View style={styles.iconContainer}>
-          <Settings color="red" size={23} />
-        </View>
+    <View style={{ flex: 1 }}>
+      <RenderMap />
+      <View className='bg-white h-[60px] flex justify-center p-4 rounded-t-2xl'>
+        
       </View>
-
-      {/* The second ScrollView is removed */}
-      <Footer route="home" />
-    </ScrollView>
+      <Footer route="map" />
+    </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff', // Optional for a cleaner background
-  },
-  content: {
-    flex: 1,
-    display: 'flex',
-    justifyContent: 'space-around',
-    alignItems: 'center', // Center the content
-    padding: 20, // Add some padding around content
-  },
-  iconContainer: {
-    marginVertical: 10, // Space between icons
-  },
-  textContainer: {
-    marginVertical: 10, // Space between text and icons
-  },
-});

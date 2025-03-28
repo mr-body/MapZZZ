@@ -19,7 +19,7 @@ export const mapStyle = [
       elementType: 'labels.text.fill',
       stylers: [
         {
-          color: '#BDBDBD',  // Cor para texto de rótulos (cinza suave para boa legibilidade sem sobrecarregar)
+          color: '#158ADD',  // Cor para texto de rótulos (cinza suave para boa legibilidade sem sobrecarregar)
         },
       ],
     },
@@ -54,7 +54,7 @@ export const mapStyle = [
       elementType: 'geometry',
       stylers: [
         {
-          color: '#DCDCDC',  // Áreas de paisagem (cinza muito suave, mantendo o contraste baixo)
+          color: '#E6E4E0',  // Áreas de paisagem (cinza muito suave, mantendo o contraste baixo)
         },
       ],
     },
@@ -63,7 +63,7 @@ export const mapStyle = [
       elementType: 'geometry',
       stylers: [
         {
-          color: '#BDBDBD',  // Pontos de interesse (cinza suave, com pouca diferenciação do fundo)
+          color: '#0B8C8C',  // Pontos de interesse (cinza suave, com pouca diferenciação do fundo)
         },
       ],
     },
@@ -81,7 +81,7 @@ export const mapStyle = [
       elementType: 'geometry',
       stylers: [
         {
-          color: '#BDBDBD',  // Estradas principais (cinza suave, criando uma rede de ruas sem exagerar)
+          color: '#FFFFFF',  // Estradas principais (cinza suave, criando uma rede de ruas sem exagerar)
         },
       ],
     },
@@ -126,7 +126,7 @@ export const mapStyle = [
       elementType: 'labels.text.fill',
       stylers: [
         {
-          color: '#757575',  // Estações de transporte (um tom de cinza mais escuro para facilitar a leitura)
+          color: '#EC8218',  // Estações de transporte (um tom de cinza mais escuro para facilitar a leitura)
         },
       ],
     },
@@ -135,7 +135,7 @@ export const mapStyle = [
       elementType: 'geometry',
       stylers: [
         {
-          color: '#B0BEC5',  // Água (um tom de cinza azulado, que mantém o estilo monocromático)
+          color: '#158ADD',  // Água (um tom de cinza azulado, que mantém o estilo monocromático)
         },
       ],
     },

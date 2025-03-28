@@ -8,14 +8,37 @@
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
+    "platforms": ["ios", "android"],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.sonny-boy.MapZZZ",
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyDRIf9DSGEMJbcggmY2vnjAUhReLC127Y4"
+        }
+      },
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "This app uses your location to show your current position on the map.",
+        "NSLocationAlwaysUsageDescription": "This app uses your location to show your current position on the map."
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyDRIf9DSGEMJbcggmY2vnjAUhReLC127Y4"
+        }
+      },
+      "permissions": [
+        "android.permission.ACCESS_COARSE_LOCATION",
+        "android.permission.ACCESS_FINE_LOCATION",
+        "android.permission.CAMERA",
+        "android.permission.RECORD_AUDIO"
+      ],
+      "package": "com.sonny_boy.MapZZZ"
     },
     "web": {
       "bundler": "metro",
@@ -50,6 +73,14 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "3ec090de-b233-4a9b-bc7f-67aee1a43b28"
+      }
     }
   }
 }
