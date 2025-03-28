@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Text, View, StyleSheet, TouchableOpacity, ActivityIndicator } from 'react-native';
-import MapView, { PROVIDER_GOOGLE, Marker, Circle, Heatmap } from 'react-native-maps';
-import MapViewCluster from 'react-native-map-clustering';
+import MapView, { PROVIDER_GOOGLE,  Marker, Circle, Heatmap } from 'react-native-maps';
+// import MapViewCluster from 'react-native-map-clustering';
 import { mapStyle } from "../constants/map_config"
 import * as Location from 'expo-location';
 
@@ -80,7 +80,7 @@ export default function RenderMap() {
             </View>
             <View style={{ flex: 1 }}>
                 {location ? (
-                    <MapViewCluster
+                    <MapView
                         style={styles.map}
                         provider={PROVIDER_GOOGLE}
                         mapType={type}
@@ -114,7 +114,7 @@ export default function RenderMap() {
                                 </Marker>
                             </React.Fragment>
                         ))}
-                    </MapViewCluster>
+                    </MapView>
                 ) : (
                     <View style={styles.loadingContainer}>
                         <ActivityIndicator size="large" color="#0000ff" />
